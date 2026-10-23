@@ -35,7 +35,7 @@ Las instrucciones completas que faltan por compartir se incorporarán a este REA
 | --- | --- | --- |
 | Lijian | Crear una cuenta: futura maquetación de la pantalla de registro. | Asignación confirmada; implementación pendiente. |
 | Ariana | Iniciar sesión: futura maquetación de la pantalla de acceso. | Asignación confirmada; implementación pendiente. |
-| Otras asignaciones del equipo | Se agregarán cuando se compartan. | Pendientes. |
+
 
 Cada integrante desarrollará su parte tomando como referencia el mismo diseño de GLOBALTICKET. Las responsabilidades adicionales se actualizarán conforme el equipo las acuerde.
 
