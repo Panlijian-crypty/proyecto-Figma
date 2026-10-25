@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Pantalla de inicio de sesión de GlobalTicket basada en el diseño de Figma.">
+ <title>Iniciar sesión | GlobalTicket</title>
+ <style>
+html, body { margin: 0; min-height: 100%; }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+#gt-login-preview { --gt-primary:#6d28d9; --gt-dark:#4c1d95; --gt-header:#2a1050; --gt-background:#f5f5f5; --gt-muted:#6b7280; color-scheme:light; color:#000; background:var(--gt-background); font-family:Inter,Arial,sans-serif; font-size:16px; line-height:1.5; }
+#gt-login-preview *, #gt-login-preview *::before, #gt-login-preview *::after { box-sizing:border-box; }
+#gt-login-preview .gt-page { min-height:1024px; display:flex; flex-direction:column; }
+#gt-login-preview .gt-container { width:calc(100% - 48px); max-width:1120px; margin-inline:auto; }
+#gt-login-preview .gt-header { background:var(--gt-header); color:#fff; }
+#gt-login-preview .gt-header-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+#gt-login-preview .gt-brand { color:inherit; font-size:16px; font-weight:600; text-decoration:none; white-space:nowrap; }
+#gt-login-preview .gt-search { width:400px; max-width:42%; height:40px; padding:0 16px; display:flex; align-items:center; gap:8px; border-radius:20px; background:#fff; margin:0; }
+#gt-login-preview .gt-search img { width:19px; height:19px; flex:0 0 19px; }
+#gt-login-preview .gt-search input { min-width:0; width:100%; height:100%; border:0; background:transparent; color:#374151; font:400 14px/24px Inter,Arial,sans-serif; }
+#gt-login-preview .gt-search input::placeholder { color:rgba(136,136,136,.53); opacity:1; }
+#gt-login-preview .gt-button { border:0; border-radius:8px; color:#fff; background:var(--gt-primary); font:500 16px/24px Inter,Arial,sans-serif; display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:8px 16px; text-decoration:none; transition:background .2s ease; }
+#gt-login-preview .gt-button:hover { background:var(--gt-dark); }
+#gt-login-preview .gt-signin { white-space:nowrap; min-width:120px; }
+#gt-login-preview .gt-avatar { width:40px; height:40px; display:block; border-radius:50%; flex:0 0 40px; }
+#gt-login-preview .gt-main { flex:1; padding:16px 24px 48px; display:flex; justify-content:center; align-items:flex-start; }
+#gt-login-preview .gt-registration { width:440px; max-width:100%; height:560px; padding:24px 24px 21px; border-radius:16px; background:#fff; box-shadow:0 4px 16px rgba(27,21,48,.08); display:flex; flex-direction:column; }
+#gt-login-preview .gt-title { padding:0; margin:0; color:#000; text-align:center; font:700 32px/39px Inter,Arial,sans-serif; }
+#gt-login-preview .gt-form { display:flex; flex-direction:column; flex:1; min-height:0; margin:0; }
+#gt-login-preview .gt-field { width:400px; max-width:calc(100% + 8px); margin-left:-24px; padding:16px; display:flex; flex-direction:column; gap:8px; }
+#gt-login-preview .gt-field label { color:#0f0f14; font-size:14px; line-height:24px; }
+#gt-login-preview .gt-field input { width:100%; min-width:0; height:48px; padding:10px 16px; border:1px solid var(--gt-muted); border-radius:8px; background:#fff; color:#0f0f14; font:400 16px/24px Inter,Arial,sans-serif; }
+#gt-login-preview .gt-field input::placeholder { color:var(--gt-muted); opacity:1; }
+#gt-login-preview .gt-actions { margin-top:auto; display:flex; flex-direction:column; gap:16px; text-align:center; }
+#gt-login-preview .gt-register { width:100%; }
+#gt-login-preview .gt-login-text { margin:0; color:var(--gt-muted); font-size:14px; line-height:24px; }
+#gt-login-preview .gt-login-text a { color:inherit; text-decoration:none; }
+#gt-login-preview .gt-login-text a:hover { text-decoration:underline; }
+#gt-login-preview .gt-footer { background:var(--gt-dark); color:#fff; }
+#gt-login-preview .gt-footer-inner { min-height:120px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+#gt-login-preview .gt-footer-nav { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+#gt-login-preview .gt-footer-nav a { font-size:14px; line-height:24px; text-decoration:none; color:#fff; }
+#gt-login-preview .gt-footer-nav a:hover { text-decoration:underline; }
+#gt-login-preview .gt-copyright { color:#eeddee; margin:0; font-size:14px; line-height:24px; white-space:nowrap; }
+#gt-login-preview .gt-feedback { display:none; margin:12px 0 0; border-radius:8px; padding:10px 12px; color:#4c1d95; background:#ede9fe; font-size:14px; line-height:20px; }
+#gt-login-preview .gt-feedback:not(:empty) { display:block; }
+@media (max-width:1100px) {
+ #gt-login-preview .gt-page { min-height:900px; }
+}
+@media (max-width:760px) {
+ #gt-login-preview .gt-header-inner { flex-wrap:wrap; gap:16px; padding-block:16px; }
+ #gt-login-preview .gt-search { order:4; flex:1 0 100%; width:100%; max-width:100%; }
+ #gt-login-preview .gt-signin { margin-left:auto; }
+ #gt-login-preview .gt-footer-inner { flex-wrap:wrap; padding-block:24px; justify-content:center; text-align:center; }
+ #gt-login-preview .gt-footer-nav { justify-content:center; gap:16px 24px; }
+ #gt-login-preview .gt-copyright { width:100%; }
+}
+@media (max-width:480px) {
+ #gt-login-preview .gt-page { min-height:812px; }
+ #gt-login-preview .gt-container { width:calc(100% - 32px); }
+ #gt-login-preview .gt-header-inner { gap:12px; }
+ #gt-login-preview .gt-header .gt-brand { font-size:14px; }
+ #gt-login-preview .gt-signin { min-width:0; padding-inline:12px; font-size:14px; }
+ #gt-login-preview .gt-avatar { width:32px; height:32px; flex-basis:32px; }
+ #gt-login-preview .gt-main { padding:24px 16px 32px; }
+ #gt-login-preview .gt-registration { padding:24px 20px 21px; }
+ #gt-login-preview .gt-title { font-size:28px; line-height:36px; }
+ #gt-login-preview .gt-field { width:100%; max-width:100%; margin-left:0; padding:16px 0; }
+ #gt-login-preview .gt-footer-inner { gap:16px; }
+}
+
+#gt-login-preview .cursor-interaction { cursor: pointer; }
+    
+#gt-login-preview .gt-header { border:1px solid #000; }
+#gt-login-preview .gt-main { align-items:center; padding:32px 24px; }
+#gt-login-preview .gt-registration { height:auto; min-height:0; padding:32px; border-radius:12px; border:1px solid #e5e5e5; }
+#gt-login-preview .gt-title { font-size:24px; line-height:32px; color:#0f0f14; }
+#gt-login-preview .gt-form { margin-top:16px; gap:16px; }
+#gt-login-preview .gt-field { width:100%; max-width:100%; margin:0; padding:0; }
+#gt-login-preview .gt-field input { height:44px; padding:8px 16px; }
+#gt-login-preview .gt-actions { margin:0; padding-top:8px; }
+#gt-login-preview .gt-login-text { color:#374151; }
+#gt-login-preview .gt-login-text a { color:#6d28d9; font-weight:700; }
+@media (max-width:480px) {
+ #gt-login-preview .gt-main { padding:32px 16px; }
+ #gt-login-preview .gt-registration { padding:24px; }
+}
+</style>
+</head>
+<body>
+<div id="gt-login-preview">
+ <div class="gt-page">
+  <header class="gt-header">
+   <div class="gt-container gt-header-inner">
+    <a class="gt-brand" href="#" data-local>GLOBALTICKET</a>
+    <form class="gt-search" role="search" aria-label="Buscar en GlobalTicket">
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACA0lEQVQ4T62U3U/TUBjGfx10G93GNmNIB5iILn7CkG0Ki4Yrvdp/auKVSDSiF4JGJmwTTcymMyaIUItT99HRdW2NIyB1AxbC7/J5z3nynPc95wi2bducEi5Okf5uYrNpUCyW+FEu02js4HaLjI6OEInIBPwShyH8f8zS5y8svVqmqRsEgwFCoSCatoOqbuPxepmMXWVy4vrxyfJv3/NmJc/oyDCpmSSh0OB+rVqtkcu9I5PJ0WqZJKZih5vVanWyuTViE9eYvhXvWBgI+JmdTeHzSWSzawxHZCLyUPcBrK6uMTAgkUze4Cji8RhnwmFWcvmO2r7Z+vpXotHz9LmOHrAgCFy+dAFlaxtd1x219s56XaOh6+1m90I4HMK2LLTGjkN3xLCt3u6vIOxuM03TobfVv031SQOUf/6iF1RVxeVyERz8N21HsujFMQqFT+jNJkdhWRYfCh8ZGzuHKPZ3Nxsfv4IALDx70RH/IEsvl6nW6txMTHXU9s0kSeLO7WmUze/cf/CQjW9bjoWbmwpz808pFEu4RTembR3/nCqVGo+fPOd3pYLbI+L1emkZLTStgd/vIzWTIJPJY7QM0ul7hA70rcNsj40NBUVVaBpGO4k8dBY5IuMSBOqaxqO5BQzTaXio2XF0Mzzxf+aTJNLpu4h9IouLr9vaiZPtsfukBDweN38A4K/WjmNrVb4AAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAABJRU5ErkJggg==" width="19" height="19" alt="">
+     <input type="search" name="busqueda" placeholder="Buscar un puesto" aria-label="Buscar un puesto">
+    </form>
+    <a class="gt-button gt-signin cursor-interaction" href="crear-cuenta.html">Registrate</a>
+    <img class="gt-avatar" src="data:image/png;base64,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" width="40" height="40" alt="Avatar de usuario">
+   </div>
+  </header>
+  <main class="gt-main">
+   <section class="gt-registration" aria-labelledby="gt-login-heading">
+    <h1 class="gt-title" id="gt-login-heading">Iniciar sesión</h1>
+    <form class="gt-form" aria-label="Iniciar sesión">
+     <div class="gt-field">
+      <label for="gt-email">Correo electrónico</label>
+      <input id="gt-email" name="correo" autocomplete="username" type="email" placeholder="nombre@correo.com" required>
+     </div>
+     <div class="gt-field">
+      <label for="gt-password">Contraseña</label>
+      <input id="gt-password" name="contrasena" autocomplete="current-password" type="password" placeholder="Tu contraseña" required>
+     </div>
+     <div class="gt-actions">
+      <button class="gt-button gt-register cursor-interaction" type="submit">Iniciar sesión</button>
+      <p class="gt-login-text">¿Aún no tienes cuenta? <a href="crear-cuenta.html">Regístrate</a></p>
+     </div>
+     <p class="gt-feedback" aria-live="polite"></p>
+    </form>
+   </section>
+  </main>
+  <footer class="gt-footer">
+   <div class="gt-container gt-footer-inner">
+    <a class="gt-brand" href="#" data-local>GLOBALTICKET</a>
+    <nav class="gt-footer-nav" aria-label="Enlaces del pie de página">
+     <a href="#" data-local>Eventos</a>
+     <a href="#" data-local>Ayuda</a>
+     <a href="#" data-local>Términos y condiciones</a>
+    </nav>
+    <p class="gt-copyright">© 2026 GlobalTicket</p>
+   </div>
+  </footer>
+ </div>
+</div>
+<script>
+(function () {
+ const root = document.getElementById('gt-login-preview');
+ const feedback = root.querySelector('.gt-feedback');
+ root.querySelector('.gt-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  feedback.textContent = 'Vista previa: no se inicia una sesión real ni se guardan tus datos.';
+ });
+ root.querySelector('.gt-search').addEventListener('submit', function (event) {
+  event.preventDefault();
+ });
+ root.querySelectorAll('[data-local]').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+   event.preventDefault();
+   feedback.textContent = 'Esta vista previa incluye únicamente la pantalla Iniciar sesión.';
+  });
+ });
+})();
+</script>
+</body>
+</html>
