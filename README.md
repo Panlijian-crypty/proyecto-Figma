@@ -9,6 +9,13 @@ Maquetación de dos pantallas del prototipo de GlobalTicket con HTML5 y CSS3 pur
 | Pan Lijian Wong | Crear cuenta | [crear-cuenta.html](crear-cuenta.html) |
 | Ariana Belén Recinos Santos | Iniciar sesión | [iniciar-sesion.html](iniciar-sesion.html) |
 
+## Participación de cada integrante
+
+- **Ariana Belén Recinos Santos** realizó su parte del proyecto: el diseño y la maquetación de la pantalla **Iniciar sesión**.
+- **Pan Lijian Wong** realizó su parte del proyecto: el diseño y la maquetación de la pantalla **Crear cuenta**.
+
+Cada integrante trabajó en su pantalla asignada y ambas contribuciones se integraron en este repositorio como una entrega conjunta.
+
 Las dos pantallas forman parte de la misma entrega y comparten la hoja de estilos y los recursos gráficos.
 
 ## Archivos
