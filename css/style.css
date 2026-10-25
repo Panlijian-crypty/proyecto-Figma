@@ -1,0 +1,179 @@
+/* Base compartida por Crear cuenta e Iniciar sesión. */
+:root {
+    --color-primary: #6d28d9;
+    --color-dark: #4c1d95;
+    --color-header: #2a1050;
+    --color-background: #f5f5f5;
+    --color-muted: #6b7280;
+    --color-text: #0f0f14;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+.gt-site {
+    color: var(--color-text);
+    background: var(--color-background);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+input, button { font: inherit; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid #b794f4; outline-offset: 3px; }
+
+/* Grid organiza la página y las columnas del encabezado. */
+.gt-page { min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; }
+.gt-container { width: min(70rem, calc(100% - 3rem)); margin-inline: auto; }
+.gt-header { color: #fff; background: var(--color-header); }
+.gt-header-inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 25rem) auto 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 4.5rem;
+}
+.gt-brand { font-weight: 600; text-decoration: none; white-space: nowrap; }
+.gt-account-nav { display: flex; justify-content: flex-end; }
+.gt-search {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    min-width: 0;
+    height: 2.5rem;
+    padding-inline: 1rem;
+    background: #fff;
+    border-radius: 2rem;
+}
+.gt-search img { width: 19px; height: 19px; flex: 0 0 19px; }
+.gt-search input {
+    width: 100%; min-width: 0; height: 100%; padding: 0;
+    border: 0; background: transparent; color: #374151; font-size: .875rem;
+}
+.gt-search input::placeholder { color: #6b7280; opacity: 1; }
+.gt-avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; }
+
+/* Flexbox alinea los controles, el formulario y el pie de página. */
+.gt-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: .5rem 1rem;
+    border: 0;
+    border-radius: .5rem;
+    color: #fff;
+    background: var(--color-primary);
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.gt-button:hover { background: var(--color-dark); }
+.gt-signin { min-width: 7.5rem; white-space: nowrap; }
+.gt-main {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem 1.5rem 3rem;
+}
+.gt-registration {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 27.5rem);
+    min-height: 35rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 16px rgb(27 21 48 / 8%);
+}
+.gt-title { margin: 0; color: #000; font-size: 2rem; line-height: 1.25; text-align: center; }
+.gt-form { display: flex; flex-direction: column; flex: 1; margin-top: 1rem; gap: 1rem; }
+.gt-field { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.gt-field label { font-size: .875rem; }
+.gt-field input {
+    width: 100%; min-width: 0; min-height: 3rem; padding: .625rem 1rem;
+    border: 1px solid var(--color-muted); border-radius: .5rem; background: #fff; color: var(--color-text);
+}
+.gt-field input::placeholder { color: var(--color-muted); opacity: 1; }
+.gt-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: auto; text-align: center; }
+.gt-register { width: 100%; }
+.gt-login-text { margin: 0; color: var(--color-muted); font-size: .875rem; }
+.gt-login-text a { text-decoration: underline; text-underline-offset: .15em; }
+.gt-form-note { margin: 0; color: var(--color-muted); font-size: .75rem; text-align: center; }
+/* Registro: los cuatro campos y sus proporciones corresponden a B3 en Figma. */
+.gt-create-page .gt-main { align-items: center; padding-block: 1rem; }
+.gt-create-page .gt-registration { min-height: 0; padding: 2rem; border-radius: .75rem; }
+.gt-create-page .gt-title { line-height: 2.4375rem; }
+.gt-create-page .gt-form { flex: 0; }
+.gt-create-page .gt-field label { line-height: 1.5rem; }
+.gt-create-page .gt-field input { min-height: 2.75rem; padding-block: .5rem; }
+.gt-create-page .gt-actions { margin-top: 0; padding-top: .5rem; }
+.gt-create-page .gt-login-text { line-height: 1.5rem; }
+.gt-create-page .gt-login-text a { color: var(--color-primary); text-decoration: none; }
+.gt-create-page .gt-login-text a:hover { text-decoration: underline; }
+.gt-create-page .gt-form-note {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+.gt-login-page .gt-main { align-items: center; padding-block: 2rem; }
+.gt-login-page .gt-registration { min-height: 0; padding: 2rem; border: 1px solid #e5e5e5; border-radius: .75rem; }
+.gt-login-page .gt-title { color: var(--color-text); font-size: 1.5rem; }
+.gt-login-page .gt-field input { min-height: 2.75rem; padding-block: .5rem; }
+.gt-login-page .gt-actions { margin-top: .5rem; }
+.gt-login-page .gt-login-text { color: #374151; }
+.gt-login-page .gt-login-text a { color: var(--color-primary); font-weight: 700; }
+.gt-footer { color: #fff; background: var(--color-dark); }
+.gt-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 7.5rem; padding-block: 1.5rem; }
+.gt-footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem 2rem; font-size: .875rem; }
+.gt-copyright { margin: 0; color: #eeddee; font-size: .875rem; white-space: nowrap; }
+
+/* 1. Computadora de escritorio: desde 1024 px. */
+@media (min-width: 1024px) {
+    .gt-page { min-height: max(64rem, 100svh); }
+}
+
+/* 2. Tablet: de 768 a 1023 px. */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gt-header-inner { gap: 1rem; grid-template-columns: auto minmax(0, 1fr) auto 2.5rem; }
+    .gt-main { padding-block: 2rem; }
+    .gt-footer-inner { flex-wrap: wrap; justify-content: center; }
+    .gt-copyright { flex-basis: 100%; text-align: center; }
+    .gt-create-page .gt-container { width: calc(100% - 6rem); }
+    .gt-create-page .gt-footer-inner { flex-wrap: nowrap; justify-content: space-between; gap: 1rem; }
+    .gt-create-page .gt-copyright { flex-basis: auto; }
+}
+
+/* 3. Celular: hasta 767 px. */
+@media (max-width: 767px) {
+    .gt-container { width: calc(100% - 2rem); }
+    .gt-header-inner { grid-template-columns: minmax(0, 1fr) auto 2rem; gap: .75rem; padding-block: 1rem; }
+    .gt-header .gt-brand { font-size: .875rem; }
+    .gt-account-nav { grid-column: 2; grid-row: 1; }
+    .gt-avatar { grid-column: 3; grid-row: 1; width: 2rem; height: 2rem; }
+    .gt-search { grid-column: 1 / -1; grid-row: 2; }
+    .gt-signin { min-width: 0; padding-inline: .75rem; font-size: .875rem; }
+    .gt-main { padding: 1.5rem 1rem 2rem; }
+    .gt-registration { padding: 1.5rem 1.25rem; }
+    .gt-title { font-size: 1.75rem; }
+    .gt-login-page .gt-main { padding-inline: 1rem; }
+    .gt-login-page .gt-registration { padding: 1.5rem; }
+    .gt-footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    .gt-footer-links { gap: 1rem 1.5rem; }
+    .gt-create-page .gt-main { padding-block: 1.5rem; }
+    .gt-create-page .gt-registration { padding: 1.5rem; }
+    .gt-create-page .gt-title { font-size: 1.375rem; line-height: 1.6875rem; }
+    .gt-create-page .gt-field { gap: 0; }
+    .gt-create-page .gt-actions { padding-top: 0; }
+    .gt-create-page .gt-header-inner { column-gap: .5rem; }
+    .gt-create-page .gt-header .gt-brand { font-size: clamp(.75rem, 4.1vw, 1rem); }
+    .gt-create-page .gt-signin { width: 7.5rem; padding-inline: .5rem; font-size: clamp(.875rem, 4.1vw, 1rem); }
+}
