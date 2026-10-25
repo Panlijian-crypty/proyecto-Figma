@@ -1,139 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pantalla de crear cuenta de GlobalTicket, basada en el diseño de Figma.">
-    <title>Crear cuenta | GlobalTicket</title>
-    <style>
-html, body { margin: 0; min-height: 100%; }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-#gt-crear-preview { --gt-primary:#6d28d9; --gt-dark:#4c1d95; --gt-header:#2a1050; --gt-background:#f5f5f5; --gt-muted:#6b7280; color-scheme:light; color:#000; background:var(--gt-background); font-family:Inter,Arial,sans-serif; font-size:16px; line-height:1.5; }
-#gt-crear-preview *, #gt-crear-preview *::before, #gt-crear-preview *::after { box-sizing:border-box; }
-#gt-crear-preview .gt-page { min-height:1024px; display:flex; flex-direction:column; }
-#gt-crear-preview .gt-container { width:calc(100% - 48px); max-width:1120px; margin-inline:auto; }
-#gt-crear-preview .gt-header { background:var(--gt-header); color:#fff; }
-#gt-crear-preview .gt-header-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-#gt-crear-preview .gt-brand { color:inherit; font-size:16px; font-weight:600; text-decoration:none; white-space:nowrap; }
-#gt-crear-preview .gt-search { width:400px; max-width:42%; height:40px; padding:0 16px; display:flex; align-items:center; gap:8px; border-radius:20px; background:#fff; margin:0; }
-#gt-crear-preview .gt-search img { width:19px; height:19px; flex:0 0 19px; }
-#gt-crear-preview .gt-search input { min-width:0; width:100%; height:100%; border:0; background:transparent; color:#374151; font:400 14px/24px Inter,Arial,sans-serif; }
-#gt-crear-preview .gt-search input::placeholder { color:rgba(136,136,136,.53); opacity:1; }
-#gt-crear-preview .gt-button { border:0; border-radius:8px; color:#fff; background:var(--gt-primary); font:500 16px/24px Inter,Arial,sans-serif; display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:8px 16px; text-decoration:none; transition:background .2s ease; }
-#gt-crear-preview .gt-button:hover { background:var(--gt-dark); }
-#gt-crear-preview .gt-signin { white-space:nowrap; min-width:120px; }
-#gt-crear-preview .gt-avatar { width:40px; height:40px; display:block; border-radius:50%; flex:0 0 40px; }
-#gt-crear-preview .gt-main { flex:1; padding:16px 24px 48px; display:flex; justify-content:center; align-items:flex-start; }
-#gt-crear-preview .gt-registration { width:440px; max-width:100%; height:560px; padding:24px 24px 21px; border-radius:16px; background:#fff; box-shadow:0 4px 16px rgba(27,21,48,.08); display:flex; flex-direction:column; }
-#gt-crear-preview .gt-title { padding:0; margin:0; color:#000; text-align:center; font:700 32px/39px Inter,Arial,sans-serif; }
-#gt-crear-preview .gt-form { display:flex; flex-direction:column; flex:1; min-height:0; margin:0; }
-#gt-crear-preview .gt-field { width:400px; max-width:calc(100% + 8px); margin-left:-24px; padding:16px; display:flex; flex-direction:column; gap:8px; }
-#gt-crear-preview .gt-field label { color:#0f0f14; font-size:14px; line-height:24px; }
-#gt-crear-preview .gt-field input { width:100%; min-width:0; height:48px; padding:10px 16px; border:1px solid var(--gt-muted); border-radius:8px; background:#fff; color:#0f0f14; font:400 16px/24px Inter,Arial,sans-serif; }
-#gt-crear-preview .gt-field input::placeholder { color:var(--gt-muted); opacity:1; }
-#gt-crear-preview .gt-actions { margin-top:auto; display:flex; flex-direction:column; gap:16px; text-align:center; }
-#gt-crear-preview .gt-register { width:100%; }
-#gt-crear-preview .gt-login-text { margin:0; color:var(--gt-muted); font-size:14px; line-height:24px; }
-#gt-crear-preview .gt-login-text a { color:inherit; text-decoration:none; }
-#gt-crear-preview .gt-login-text a:hover { text-decoration:underline; }
-#gt-crear-preview .gt-footer { background:var(--gt-dark); color:#fff; }
-#gt-crear-preview .gt-footer-inner { min-height:120px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-#gt-crear-preview .gt-footer-nav { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
-#gt-crear-preview .gt-footer-nav a { font-size:14px; line-height:24px; text-decoration:none; color:#fff; }
-#gt-crear-preview .gt-footer-nav a:hover { text-decoration:underline; }
-#gt-crear-preview .gt-copyright { color:#eeddee; margin:0; font-size:14px; line-height:24px; white-space:nowrap; }
-#gt-crear-preview .gt-feedback { display:none; margin:12px 0 0; border-radius:8px; padding:10px 12px; color:#4c1d95; background:#ede9fe; font-size:14px; line-height:20px; }
-#gt-crear-preview .gt-feedback:not(:empty) { display:block; }
-@media (max-width:1100px) {
- #gt-crear-preview .gt-page { min-height:900px; }
-}
-@media (max-width:760px) {
- #gt-crear-preview .gt-header-inner { flex-wrap:wrap; gap:16px; padding-block:16px; }
- #gt-crear-preview .gt-search { order:4; flex:1 0 100%; width:100%; max-width:100%; }
- #gt-crear-preview .gt-signin { margin-left:auto; }
- #gt-crear-preview .gt-footer-inner { flex-wrap:wrap; padding-block:24px; justify-content:center; text-align:center; }
- #gt-crear-preview .gt-footer-nav { justify-content:center; gap:16px 24px; }
- #gt-crear-preview .gt-copyright { width:100%; }
-}
-@media (max-width:480px) {
- #gt-crear-preview .gt-page { min-height:812px; }
- #gt-crear-preview .gt-container { width:calc(100% - 32px); }
- #gt-crear-preview .gt-header-inner { gap:12px; }
- #gt-crear-preview .gt-header .gt-brand { font-size:14px; }
- #gt-crear-preview .gt-signin { min-width:0; padding-inline:12px; font-size:14px; }
- #gt-crear-preview .gt-avatar { width:32px; height:32px; flex-basis:32px; }
- #gt-crear-preview .gt-main { padding:24px 16px 32px; }
- #gt-crear-preview .gt-registration { padding:24px 20px 21px; }
- #gt-crear-preview .gt-title { font-size:28px; line-height:36px; }
- #gt-crear-preview .gt-field { width:100%; max-width:100%; margin-left:0; padding:16px 0; }
- #gt-crear-preview .gt-footer-inner { gap:16px; }
-}
-
-#gt-crear-preview .cursor-interaction { cursor: pointer; }
-    </style>
-</head>
-<body>
-<div id="gt-crear-preview">
- <div class="gt-page">
-  <header class="gt-header">
-   <div class="gt-container gt-header-inner">
-    <a class="gt-brand" href="#" data-local>GLOBALTICKET</a>
-    <form class="gt-search" role="search" aria-label="Buscar en GlobalTicket">
-     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACA0lEQVQ4T62U3U/TUBjGfx10G93GNmNIB5iILn7CkG0Ki4Yrvdp/auKVSDSiF4JGJmwTTcymMyaIUItT99HRdW2NIyB1AxbC7/J5z3nynPc95wi2bducEi5Okf5uYrNpUCyW+FEu02js4HaLjI6OEInIBPwShyH8f8zS5y8svVqmqRsEgwFCoSCatoOqbuPxepmMXWVy4vrxyfJv3/NmJc/oyDCpmSSh0OB+rVqtkcu9I5PJ0WqZJKZih5vVanWyuTViE9eYvhXvWBgI+JmdTeHzSWSzawxHZCLyUPcBrK6uMTAgkUze4Cji8RhnwmFWcvmO2r7Z+vpXotHz9LmOHrAgCFy+dAFlaxtd1x219s56XaOh6+1m90I4HMK2LLTGjkN3xLCt3u6vIOxuM03TobfVv031SQOUf/6iF1RVxeVyERz8N21HsujFMQqFT+jNJkdhWRYfCh8ZGzuHKPZ3Nxsfv4IALDx70RH/IEsvl6nW6txMTHXU9s0kSeLO7WmUze/cf/CQjW9bjoWbmwpz808pFEu4RTembR3/nCqVGo+fPOd3pYLbI+L1emkZLTStgd/vIzWTIJPJY7QM0ul7hA70rcNsj40NBUVVaBpGO4k8dBY5IuMSBOqaxqO5BQzTaXio2XF0Mzzxf+aTJNLpu4h9IouLr9vaiZPtsfukBDweN38A4K/WjmNrVb4AAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAABJRU5ErkJggg==" width="19" height="19" alt="">
-     <input type="search" name="busqueda" placeholder="Buscar un puesto" aria-label="Buscar un puesto">
-    </form>
-    <a class="gt-button gt-signin cursor-interaction" href="#" data-local>Iniciar sesión</a>
-    <img class="gt-avatar" src="data:image/png;base64,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" width="40" height="40" alt="Avatar de usuario">
-   </div>
-  </header>
-  <main class="gt-main">
-   <section class="gt-registration" aria-labelledby="gt-register-heading">
-    <h1 class="gt-title" id="gt-register-heading">Crear Cuenta</h1>
-    <form class="gt-form" aria-label="Crear cuenta">
-     <div class="gt-field">
-      <label for="gt-full-name">Nombre Completo</label>
-      <input id="gt-full-name" name="nombre" autocomplete="name" type="text" placeholder="José Manuel Osorio" required>
-     </div>
-     <div class="gt-actions">
-      <button class="gt-button gt-register cursor-interaction" type="submit">Registrarme</button>
-      <p class="gt-login-text">¿Ya tienes cuenta? <a href="#" data-local>Inicia sesión</a></p>
-     </div>
-     <p class="gt-feedback" aria-live="polite"></p>
-    </form>
-   </section>
-  </main>
-  <footer class="gt-footer">
-   <div class="gt-container gt-footer-inner">
-    <a class="gt-brand" href="#" data-local>GLOBALTICKET</a>
-    <nav class="gt-footer-nav" aria-label="Enlaces del pie de página">
-     <a href="#" data-local>Eventos</a>
-     <a href="#" data-local>Ayuda</a>
-     <a href="#" data-local>Términos y condiciones</a>
-    </nav>
-    <p class="gt-copyright">© 2026 GlobalTicket</p>
-   </div>
-  </footer>
- </div>
-</div>
-<script>
-(function () {
- const root = document.getElementById('gt-crear-preview');
- const feedback = root.querySelector('.gt-feedback');
- root.querySelector('.gt-form').addEventListener('submit', function (event) {
-  event.preventDefault();
-  feedback.textContent = 'Vista previa: los datos no se guardan ni se crea una cuenta.';
- });
- root.querySelector('.gt-search').addEventListener('submit', function (event) {
-  event.preventDefault();
- });
- root.querySelectorAll('[data-local]').forEach(function (link) {
-  link.addEventListener('click', function (event) {
-   event.preventDefault();
-   feedback.textContent = 'Esta vista previa incluye únicamente la pantalla Crear cuenta.';
-  });
- });
-})();
-</script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pantalla de crear cuenta de GlobalTicket, basada en el diseño de Figma.">
+        <title>
+            Crear cuenta | GlobalTicket
+        </title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="gt-site gt-create-page">
+        <div class="gt-page">
+            <header class="gt-header">
+                <div class="gt-container gt-header-inner">
+                    <a class="gt-brand" href="crear-cuenta.html">
+                        GLOBALTICKET
+                    </a>
+                    <div class="gt-search" role="search" aria-label="Buscar en GlobalTicket">
+                        <img src="img/buscar.png" width="19" height="19" alt="">
+                        <input type="search" name="busqueda" placeholder="Buscar un puesto" aria-label="Buscar un puesto">
+                    </div>
+                    <nav class="gt-account-nav" aria-label="Acceso a la cuenta">
+                        <a class="gt-button gt-signin" href="iniciar-sesion.html">
+                            Iniciar sesión
+                        </a>
+                    </nav>
+                    <img class="gt-avatar" src="img/avatar.png" width="40" height="40" alt="Avatar de usuario">
+                </div>
+            </header>
+            <main class="gt-main">
+                <section class="gt-registration" aria-labelledby="gt-register-heading">
+                    <h1 class="gt-title" id="gt-register-heading">
+                        Crear Cuenta
+                    </h1>
+                    <form class="gt-form" aria-describedby="gt-form-note" aria-label="Crear cuenta">
+                        <div class="gt-field">
+                            <label for="gt-full-name">
+                        Nombre completo
+                            </label>
+                            <input id="gt-full-name" name="nombre" autocomplete="name" type="text" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="gt-field">
+                            <label for="gt-register-email">Correo electrónico</label>
+                            <input id="gt-register-email" name="correo" autocomplete="email" type="email" placeholder="nombre@correo.com" required>
+                        </div>
+                        <div class="gt-field">
+                            <label for="gt-register-password">Contraseña</label>
+                            <input id="gt-register-password" name="contrasena" autocomplete="new-password" type="password" placeholder="Tu contraseña" required>
+                        </div>
+                        <div class="gt-field">
+                            <label for="gt-register-confirm-password">Confirmar contraseña</label>
+                            <input id="gt-register-confirm-password" name="confirmacion" autocomplete="new-password" type="password" placeholder="Repite tu contraseña" required>
+                        </div>
+                        <div class="gt-actions">
+                            <button class="gt-button gt-register" type="button">
+                                Registrarme
+                            </button>
+                            <p class="gt-login-text">
+                                ¿Ya tienes cuenta?
+                                <a href="iniciar-sesion.html">
+                                    Inicia sesión
+                                </a>
+                            </p>
+                        </div>
+                        <p class="gt-form-note" id="gt-form-note">
+                            Maquetación de ejemplo. No se envían datos.
+                        </p>
+                    </form>
+                </section>
+            </main>
+            <footer class="gt-footer">
+                <div class="gt-container gt-footer-inner">
+                    <a class="gt-brand" href="crear-cuenta.html">
+                        GLOBALTICKET
+                    </a>
+                    <div class="gt-footer-links">
+                        <span>
+                            Eventos
+                        </span>
+                        <span>
+                            Ayuda
+                        </span>
+                        <span>
+                            Términos y condiciones
+                        </span>
+                    </div>
+                    <p class="gt-copyright">
+                        © 2026 GlobalTicket
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </body>
 </html>
